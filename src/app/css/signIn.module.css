@@ -3,10 +3,10 @@
     font-size: 40px;
     position: absolute;
     display: flex;
-    height: 7%;
+    height: 70px;
     top: 4.5%;
-    left: 85%;
-    width: 12%;
+    right: 3%;
+    width: 190px;
     align-items: center;
     justify-content: center;
     background: #dbf5fe;

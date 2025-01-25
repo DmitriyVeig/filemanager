@@ -1,7 +1,9 @@
+import SignInMain from "../components/SignInMain";
+
 export default function SignIn() {
     return (
         <div>
-            Вход в аккаунт
+            <SignInMain/>
         </div>
     );
 }
