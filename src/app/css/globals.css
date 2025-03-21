@@ -2,6 +2,8 @@
 @import "title.module.css";
 @import "signIn.module.css";
 @import "signInMain.module.css";
+@import "signInMain.module.css";
+@import "regMain.module.css";
 @import url('https://fonts.googleapis.com/css2?family=Montserrat');
 * {
     font-family: Montserrat, serif;

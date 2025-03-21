@@ -1,5 +1,17 @@
 "use client"
 import {useState} from "react";
+import Link from "next/link";
+
+
+function getData() {
+    const res = fetch('https://localhost:3000')
+    if (!res.ok) {
+        throw new Error('Провал получения данных')
+    }
+    return res.json()
+}
+
+
 
 export default function SignInMain() {
     const [password, setPassword] = useState('');
@@ -9,18 +21,10 @@ export default function SignInMain() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (/[^a-zA-Z0-9]/.test(userName))
-            setErrorUsername('Логин может содержать только латинские буквы и цифры')
-        else
-            setErrorUsername('');
-        if (!/\d/.test(password))
-            setErrorPassword('Пароль должен содержать цифры');
-        else if (!/[a-zA-Z]/.test(password))
-            setErrorPassword('Пароль должен содeржать латинские буквы');
-        else if (!/[^a-zA-Z0-9]/.test(password))
-            setErrorPassword('Пароль должен содержать специальные символы');
-        else
-            setErrorPassword('');
+        /*
+        Здесь мог быть мой RestAPI
+         */
+        console.log("A")
     };
     return (
         <div className="login-container">
@@ -43,7 +47,8 @@ export default function SignInMain() {
                            onChange={(event) => setPassword(event.target.value)}/>
                     {errorPassword && <p className="errorPassword">{errorPassword}</p>}
                 </div>
-                <button type="submit">Войти</button>
+                <button type="submit" onClick={(event) => {}}>Войти</button>
+                <Link href="../reg"><button>Зарегистрироваться</button></Link>
             </form>
         </div>
     );

@@ -1,4 +1,4 @@
-.login-container {
+.reg-container {
     position: absolute;
     display: flex;
     justify-content: center;
@@ -6,8 +6,8 @@
     flex-direction: column;
     top: 20%;
     bottom: 20%;
-    left: 35%;
-    right: 35%;
+    left: 25%;
+    right: 25%;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -23,25 +23,37 @@ h2 {
 }
 label {
     display: block;
+    margin-bottom: 5px;
 }
-.username {
+.usernameReg {
     font-size: 20px;
 }
-.password {
+.passwordReg {
+    margin-top: 50px;
     font-size: 20px;
 }
-input[type="text"],
-input[type="password"] {
+input[type="password"]{
     font-size: 18px;
     width: 90%;
     height: 25px;
     padding: 8px;
     border: 1px solid #ccc;
+    transition: border 0.5s;
     border-radius: 4px;
 }
-button {
+input[type="text"]{
+    font-size: 18px;
+    width: 90%;
+    height: 25px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    transition: border 0.5s;
+    border-radius: 4px;
+}
+.buttonReg {
     width: 97%;
     padding: 10px;
+    margin-top: 40px;
     margin-bottom: 10px;
     background: #c3dae3;
     color: black;
@@ -51,4 +63,16 @@ button {
 }
 button:hover {
     background: #b6ccd4;
+}
+.errorUsername {
+    visibility: hidden;
+    position: absolute;
+    transition: visibility 0.5s;
+    background: aquamarine;
+}
+.errorPassword {
+    visibility: hidden;
+    position: absolute;
+    transition: visibility 0.5s;
+    background: aquamarine;
 }
