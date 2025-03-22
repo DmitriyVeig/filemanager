@@ -8,8 +8,8 @@ function Check(flag, type) {
 }
 
 function Display(flag, type) {
-    if (flag) document.getElementById(type).style.visibility = 'visible'
-    if (!flag) document.getElementById(type).style.visibility = 'hidden'
+    if (flag) document.getElementById(type).style.opacity = 1;
+    if (!flag) document.getElementById(type).style.opacity = 0;
 }
 
 
@@ -32,7 +32,6 @@ export default function RegMain() {
             Display(1, "errorUsername")
         }
         else {
-            setErrorUsername('');
             Check(1, "username")
             Display(0, "errorUsername")
         }
@@ -57,7 +56,6 @@ export default function RegMain() {
             Display(1, "errorPassword")
         }
         else {
-            setErrorPassword('');
             Check(1, "password")
             Display(0, "errorPassword")
         }
@@ -76,21 +74,23 @@ export default function RegMain() {
                            id="username"
                            name="username"
                            value={userName}
-                           className="username"
                            onChange={(e) => setUserName(e.target.value)}/>
-                    <p className="errorUsername" id="errorUsername">{errorUsername}</p>
+                    <div className="backErrorUsername" id="errorUsername">
+                        <p className="errorUsername">{errorUsername}</p>
+                    </div>
                 </div>
                 <div className="form-group">
                     <label form="password" className="passwordReg">Новый пароль</label>
                     <input type="password"
                            id="password"
                            name="password"
-                           className="t_password"
                            value={password}
                            onChange={(event) => setPassword(event.target.value)}/>
-                    <p className="errorPassword" id="errorPassword">{errorPassword}</p>
+                    <div className="backErrorPassword" id="errorPassword">
+                        <p className="errorPassword">{errorPassword}</p>
+                    </div>
                 </div>
-                <button className="buttonReg" type="submit">Зарегистрироваться</button>
+                <button className="buttonReg" type="submit" onClick={(event)=>{event.target.value}}>Зарегистрироваться</button>
             </form>
         </div>
     );

@@ -19,6 +19,7 @@ h2 {
 }
 .form-group {
     width: 270px;
+    height: 70px;
     margin-bottom: 15px;
 }
 label {
@@ -65,14 +66,40 @@ button:hover {
     background: #b6ccd4;
 }
 .errorUsername {
-    visibility: hidden;
-    position: absolute;
-    transition: visibility 0.5s;
+    position: relative;
+    border-radius: 10px;
+    transition: opacity 0.5s;
+}
+.backErrorUsername {
+    opacity: 0;
+    transition: opacity 0.5s;
+    padding: 3px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: aquamarine;
+    width: 260px;
+    border-radius: 20px;
+    height: 25px;
+    text-align: center;
 }
 .errorPassword {
-    visibility: hidden;
-    position: absolute;
-    transition: visibility 0.5s;
+    position: relative;
+    border-radius: 10px;
+    transition: opacity 0.5s;
+}
+.backErrorPassword {
+    opacity: 0;
+    transition: opacity 0.5s;
+    padding: 3px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: aquamarine;
+    width: 260px;
+    border-radius: 20px;
+    height: 25px;
+    text-align: center;
 }
