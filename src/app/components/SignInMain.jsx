@@ -1,16 +1,14 @@
 "use client"
 import {useState} from "react";
 import Link from "next/link";
+import path_env from "path";
+require('dotenv').config({ path: path_env.resolve(__dirname, '../../../.env.local') }); // Абсолютный путь
 
 
-function getData() {
-    const res = fetch('https://localhost:3000')
-    if (!res.ok) {
-        throw new Error('Провал получения данных')
-    }
+async function getData() {
+    const res = await fetch('http://localhost:3001/users')
     return res.json()
 }
-
 
 
 export default function SignInMain() {
@@ -18,13 +16,25 @@ export default function SignInMain() {
     const [userName, setUserName] = useState('');
     const [errorPassword, setErrorPassword] = useState('');
     const [errorUsername, setErrorUsername] = useState('');
+    const [submitted, submit] = useState(0)
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        /*
-        Здесь мог быть мой RestAPI
-         */
-        console.log("A")
+        if (submitted) {
+            const data = await getData();
+            console.log(userName + " " + password)
+            for (const person of data) {
+                if (person.username === userName && person.password === password) {
+                    if (person.logged) {
+                        console.log("1")
+                    }
+                    else {
+                        console.log("0")
+                    }
+                }
+            }
+            submit(0)
+        }
     };
     return (
         <div className="login-container">
@@ -47,7 +57,7 @@ export default function SignInMain() {
                            onChange={(event) => setPassword(event.target.value)}/>
                     {errorPassword && <p className="errorPassword">{errorPassword}</p>}
                 </div>
-                <button type="submit" onClick={(event) => {}}>Войти</button>
+                <button type="submit" onClick={(event) => {submit(1)}}>Войти</button>
                 <Link href="../reg"><button>Зарегистрироваться</button></Link>
             </form>
         </div>
